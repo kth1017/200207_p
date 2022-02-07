@@ -1,4 +1,5 @@
-// 1번 응용
+// 점프 투 자바 예제
+// 1 응용
 import java.util.Map;
 import java.util.HashMap;
 
@@ -15,3 +16,4 @@ public class avg {
         System.out.println(sum/score.size());
     }
 }
+
