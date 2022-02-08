@@ -2,3 +2,19 @@
 객체를 인자로 받으면 참조된 주소를 넘기기때문에 원래 값이 변경될 수 있음(https://lbmmbl.tistory.com/22참조)
 
 /? Map같이 인자가 고정된 클래스를 상속하는 함수를 만들때 그 인자를 사용하는 법 연습
+
+// Call by value : 인자로 받은 원시타입 값을 복사하고 원래 값은 변함x, refer 인자로 받은 객체의 참조주소를 전달하므로 원래 객체의 값도 변함
+
+// 람다 사용법 - 인터페이스를 구현해야하는 클래스 및 메소드가 존재 > 클래스를 구현하는 대신 람다 함수를 통해 그 클래스의 메소드를 간단히 정의
+@FunctionalInterface
+interface Calculator {
+    int sum(int a, int b);}
+public class Sample {
+    public static void main(String[] args) {
+        Calculator mc = (a, b) -> a+b; // (class)Integer::sum(method);로도 축약 가능
+        int result = mc.sum(3, 4);
+        System.out.println(result);}}
+// 이때, 인터페이스엔 sum메서드 하나만 있기에 코드에서 이에 대한 생략 가능(2개 이상은 사용 불가) > @FunctionalInterface 사용
+// 인터페이스를 생략할 수 있는 BiFunction<Integer, Integer, Integer> mc = (a, b) -> a + b; > BinaryOperator<Integer> mc로 더 축약됨
+
+// array는 기본상태론 인덱싱만가능하고 출력 역시 arrays.toString 등의 메소드를 사용해야한다.
